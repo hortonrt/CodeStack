@@ -1,0 +1,31 @@
+@import 'csvariables';
+.logo-container {
+  position: relative;
+  min-height: $router-top;
+  .logo-banner-wrap {
+    position: absolute;
+    top: 50%;
+    z-index: 1005;
+    width: 100%;
+    text-align: center;
+  }
+  .logo-banner-wrap-img {
+    position: absolute;
+    top: 25%;
+    z-index: 1005;
+    width: 100%;
+    text-align: center;
+
+    img {
+      width: 25%;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .logo-container {
+    .logo-banner-wrap-img {
+      top: 20%;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.boxes {
+  position: absolute;
+  z-index: 2000;
+  height: calc(100vh / 7);
+  width: calc(100vw / 5);
+  max-height: calc(100vh / 7);
+  max-width: calc(100vw / 5);
+
+  &.tr {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+  }
+  &.tl {
+    top: 0;
+    left: 0;
+  }
+  &.br {
+    right: 0;
+    bottom: 0;
+    transform: rotate(180deg);
+  }
+  &.bl {
+    bottom: 0;
+    left: 0;
+    transform: scaleY(-1);
+  }
+}

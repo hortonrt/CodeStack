@@ -1,0 +1,23 @@
+@import 'csvariables';
+
+.cs-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1005;
+
+  .banner-wrap {
+    background-color: $cs-bg-blue;
+    box-shadow: 0px 1px 35px 10px rgba(0, 0, 0, 0.68);
+    height: auto;
+    max-height: $router-top;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    img {
+      opacity: 0.2;
+      width: 100%;
+    }
+  }
+}

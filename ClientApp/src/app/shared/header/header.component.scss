@@ -1,0 +1,183 @@
+@import 'csvariables';
+
+.cs-nav {
+  position: absolute;
+  width: 100%;
+  z-index: 1020;
+  .cs-nav-inner {
+    .cs-nav-toggle {
+      display: none;
+      color: $white;
+    }
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1160px;
+    padding: 0;
+    position: relative;
+
+    .cs-nav-items {
+      padding: 60px 0;
+      list-style: none;
+
+      .cs-nav-item,
+      .cs-nav-logo {
+        display: inline-block;
+        cursor: pointer;
+        color: $white;
+      }
+
+      .cs-nav-logo {
+        text-align: center;
+        img {
+          width: 75%;
+        }
+      }
+
+      .cs-nav-item {
+        max-width: 115px;
+        margin-left: 40px;
+        vertical-align: middle;
+
+        &:hover .cs-nav-item-title {
+          border-top: 5px solid $secondary;
+        }
+
+        &.current-route .cs-nav-item-title {
+          border-top: 5px solid $primary;
+        }
+
+        .cs-nav-item-title {
+          display: inline-block;
+          font-size: 1rem;
+          vertical-align: top;
+          margin-bottom: 0;
+          padding-bottom: 22px;
+          font-weight: bold;
+          border-bottom: 0;
+          padding-top: 10px;
+          border-top: 5px solid transparent;
+        }
+        .cs-nav-item-details {
+          font-size: 0.9rem;
+          line-height: 1.6rem;
+        }
+        .cs-nav-item:first-child {
+          margin-left: 0;
+        }
+      }
+
+      .cs-nav-item-extra {
+        display: none;
+      }
+    }
+  }
+}
+
+.bg-expanded {
+  z-index: 1010;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background-color: $cs-nav-gray;
+  transition: opacity 0.5s ease;
+}
+
+.bg-expanded.active {
+  opacity: 1;
+}
+
+@media (max-width: map-get($map: $grid-breakpoints, $key: 'xl' )) {
+  .cs-nav {
+    .cs-nav-inner {
+      .cs-nav-items {
+        .cs-nav-item {
+          margin-left: 2%;
+        }
+        .cs-nav-item:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: map-get($map: $grid-breakpoints, $key: 'lg' )) {
+  .cs-nav {
+    .cs-nav-inner {
+      .cs-nav-toggle {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 50px;
+        z-index: 2;
+        font-size: 1.5rem;
+      }
+      .cs-nav-items {
+        position: absolute;
+        padding: 50px;
+        left: 0;
+        width: 100%;
+        transition: all 0.25s ease;
+
+        .cs-nav-item {
+          color: $white;
+          margin-left: 0;
+          margin-bottom: 40px;
+          max-height: 0;
+          display: none;
+          text-align: center;
+          width: 100%;
+          max-width: none;
+          transition: max-height 0.15s ease;
+          .cs-nav-item-details {
+            display: none;
+          }
+
+          &:hover .cs-nav-item-title {
+            border-top: 5px solid transparent;
+          }
+        }
+      }
+    }
+  }
+  &.active {
+    .cs-nav-inner {
+      .cs-nav-items {
+        .cs-nav-item {
+          display: block;
+        }
+        .cs-nav-item-extra {
+          display: block;
+          .cs-nav-item-extras {
+            padding: 0;
+            margin-top: 90px;
+            .cs-nav-item a {
+              color: $white;
+            }
+            .cs-nav-extra-logo {
+              padding-top: 50px;
+              img {
+                width: 150px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: map-get($map: $grid-breakpoints, $key: 'sm' )) {
+  .cs-nav {
+    .cs-nav-inner {
+      .cs-nav-items,
+      .cs-nav-toggle {
+        padding: 15px;
+      }
+    }
+  }
+}

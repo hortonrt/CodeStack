@@ -1,0 +1,24 @@
+@import 'csvariables';
+
+.cs-footer {
+  color: $white;
+  min-height: 150px;
+  background-color: $cs-nav-gray;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .inner {
+    align-self: center;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+a {
+  color: $white;
+}
+img {
+  height: 75px;
+}

@@ -1,0 +1,19 @@
+@import 'csvariables';
+
+$dummy: 20px;
+$pad-amount: 20px;
+
+.router-top {
+  position: absolute;
+  top: ($router-top + $pad-amount);
+  left: 0;
+}
+
+@media (max-width: map-get($map: $grid-breakpoints, $key: 'md')) {
+  .router-top {
+    position: relative;
+    padding-top: $pad-amount;
+    top: unset;
+    left: unset;
+  }
+}

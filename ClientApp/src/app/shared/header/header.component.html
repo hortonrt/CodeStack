@@ -1,0 +1,43 @@
+<nav class="cs-nav" [class.active]="expanded">
+  <div class="cs-nav-inner">
+    <div class="row no-gutters justify-content-center">
+      <div class="col-12 col-lg-10">
+        <ul class="cs-nav-items">
+          <li class="cs-nav-logo">
+            <a (click)="changeRoute(mainRoute)" class="d-none d-lg-block">
+              <img src="../assets/Logo.svg" />
+            </a>
+            <cs-logo color="white" class="d-block d-lg-none" size="1.5rem" (click)="changeRoute(mainRoute)"></cs-logo>
+          </li>
+          <li class="cs-nav-item" (click)="changeRoute(option)" *ngFor="let option of navOptions" [class.current-route]="activeRoute === option.Name">
+            <a>
+              <div class="cs-nav-item-title">{{option.Name}}</div>
+              <div class="cs-nav-item-details">{{option.Details}}</div>
+            </a>
+          </li>
+          <li class="cs-nav-item-extra">
+            <ul class="cs-nav-item-extras">
+              <li class="cs-nav-item">
+                <a href="tel:+16162586565">
+                  <div class="cs-nav-item-title">616.258.6565</div>
+                </a>
+              </li>
+              <li class="cs-nav-item">
+                <a href="mailto:ryan@codestackllc.com">
+                  <div class="cs-nav-item-title">ryan@codestackllc.com</div>
+                </a>
+              </li>
+              <li class="cs-nav-item cs-nav-extra-logo">
+                <img src="../assets/LogoWhite.svg" />
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="cs-nav-toggle" (click)="expand()">
+      <fa-icon [icon]="expanded ? faTimes : faBars"></fa-icon>
+    </div>
+  </div>
+</nav>
+<div class="bg-expanded" [class.active]="expanded"></div>

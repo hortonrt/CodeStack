@@ -1,0 +1,13 @@
+@import 'csvariables';
+
+.cs-logo {
+  &.primary {
+    color: $primary;
+  }
+  &.secondary {
+    color: $secondary;
+  }
+  &.white {
+    color: $white;
+  }
+}

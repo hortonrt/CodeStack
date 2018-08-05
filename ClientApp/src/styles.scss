@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,700');
+
+@import 'csvariables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body {
+  background-color: $body-bg;
+  // background-image: url('/assets/wallpaper.png');
+  background-attachment: fixed;
+}
+
+.btn-xl {
+  @include button-size(
+    $btn-padding-y-xl,
+    $btn-padding-x-xl,
+    $font-size-xl,
+    $btn-line-height-xl,
+    $btn-border-radius-xl
+  );
+}
+
+:focus {
+  outline: none;
+}

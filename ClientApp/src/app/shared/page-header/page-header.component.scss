@@ -1,0 +1,43 @@
+@import 'csvariables';
+
+.page-header {
+  position: relative;
+  top: -100px;
+  background-color: $white;
+  width: 90%;
+  margin: auto;
+  z-index: 1005;
+  min-height: 300px;
+  padding: 30px;
+  font-size: 1.5rem;
+}
+
+@media (max-width: map-get($map: $grid-breakpoints, $key: 'sm')) {
+  .page-header {
+    top: -170px;
+  }
+}
+
+@media (max-width: 450px) {
+  .page-header {
+    top: -230px;
+  }
+}
+
+//make card decks respond sooner
+$cards-per-line: (
+  xs: 1,
+  sm: 1,
+  md: 2,
+  lg: 4,
+  xl: 4
+);
+
+@each $name, $breakpoint in $grid-breakpoints {
+  @media (min-width: $breakpoint) {
+    .card-deck .card {
+      flex: 0 0
+        calc(#{100 / map-get($cards-per-line, $name)}% - #{$grid-gutter-width});
+    }
+  }
+}
