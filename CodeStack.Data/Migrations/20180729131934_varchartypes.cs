@@ -1,55 +1,55 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace codestack.Migrations {
+namespace CodeStack.Data.Migrations {
     public partial class varchartypes : Migration {
-        protected override void Up (MigrationBuilder migrationBuilder) {
-            migrationBuilder.AlterColumn<string> (
+        protected override void Up(MigrationBuilder migrationBuilder) {
+            migrationBuilder.AlterColumn<string>(
                 name: "Routerlink",
                 table: "NavRoute",
                 type: "VARCHAR(25)",
                 nullable : true,
-                oldClrType : typeof (string),
+                oldClrType : typeof(string),
                 oldNullable : true);
 
-            migrationBuilder.AlterColumn<string> (
+            migrationBuilder.AlterColumn<string>(
                 name: "Name",
                 table: "NavRoute",
                 type: "VARCHAR(25)",
                 nullable : true,
-                oldClrType : typeof (string),
+                oldClrType : typeof(string),
                 oldNullable : true);
 
-            migrationBuilder.AlterColumn<string> (
+            migrationBuilder.AlterColumn<string>(
                 name: "Details",
                 table: "NavRoute",
                 type: "VARCHAR(100)",
                 nullable : true,
-                oldClrType : typeof (string),
+                oldClrType : typeof(string),
                 oldNullable : true);
         }
 
-        protected override void Down (MigrationBuilder migrationBuilder) {
-            migrationBuilder.AlterColumn<string> (
+        protected override void Down(MigrationBuilder migrationBuilder) {
+            migrationBuilder.AlterColumn<string>(
                 name: "Routerlink",
                 table: "NavRoute",
                 nullable : true,
-                oldClrType : typeof (string),
+                oldClrType : typeof(string),
                 oldType: "VARCHAR(25)",
                 oldNullable : true);
 
-            migrationBuilder.AlterColumn<string> (
+            migrationBuilder.AlterColumn<string>(
                 name: "Name",
                 table: "NavRoute",
                 nullable : true,
-                oldClrType : typeof (string),
+                oldClrType : typeof(string),
                 oldType: "VARCHAR(25)",
                 oldNullable : true);
 
-            migrationBuilder.AlterColumn<string> (
+            migrationBuilder.AlterColumn<string>(
                 name: "Details",
                 table: "NavRoute",
                 nullable : true,
-                oldClrType : typeof (string),
+                oldClrType : typeof(string),
                 oldType: "VARCHAR(100)",
                 oldNullable : true);
         }

@@ -1,17 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace codestack.Migrations {
+namespace CodeStack.Data.Migrations {
     public partial class AddNavOrder : Migration {
-        protected override void Up (MigrationBuilder migrationBuilder) {
-            migrationBuilder.AddColumn<int> (
+        protected override void Up(MigrationBuilder migrationBuilder) {
+            migrationBuilder.AddColumn<int>(
                 name: "NavOrder",
                 table: "NavRoute",
                 nullable : false,
                 defaultValue : 0);
         }
 
-        protected override void Down (MigrationBuilder migrationBuilder) {
-            migrationBuilder.DropColumn (
+        protected override void Down(MigrationBuilder migrationBuilder) {
+            migrationBuilder.DropColumn(
                 name: "NavOrder",
                 table: "NavRoute");
         }

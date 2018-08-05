@@ -63,6 +63,7 @@
       true,
       "ignore-params"
     ],
+    "space-before-function-paren": false,
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-shadowed-variable": true,
