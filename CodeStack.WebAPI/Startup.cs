@@ -19,7 +19,6 @@ namespace CodeStack.WebAPI {
             Configuration = builder.Build();
             //Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -28,7 +27,7 @@ namespace CodeStack.WebAPI {
                 options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
             });
             // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "../CodeStack.UI/dist"; });
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "dist"; });
             services.AddDbContext<CodeStackContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CodeStackLLC")));
             services.AddCors();
         }
@@ -56,10 +55,11 @@ namespace CodeStack.WebAPI {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                spa.Options.SourcePath = "../CodeStack.UI/dist";
-
                 if (env.IsDevelopment()) {
+                    spa.Options.SourcePath = "../CodeStack.UI/dist";
                     spa.UseAngularCliServer(npmScript: "start");
+                } else {
+                    spa.Options.SourcePath = "dist";
                 }
             });
         }
