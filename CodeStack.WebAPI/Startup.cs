@@ -14,7 +14,7 @@ namespace CodeStack.WebAPI {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional : true, reloadOnChange : true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional : true);
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional : true, reloadOnChange : true);
 
             Configuration = builder.Build();
             //Configuration = configuration;
@@ -28,7 +28,7 @@ namespace CodeStack.WebAPI {
             });
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "dist"; });
-            services.AddDbContext<CodeStackContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CodeStackLLC")));
+            services.AddDbContext<CodeStackContext>(options => options.UseSqlServer("Data Source=132.148.86.13;Initial Catalog=CodeStackLLC_Dev;uid=CodeStackLLC;password=vN99iwbv7!;MultipleActiveResultSets=true;"));
             services.AddCors();
         }
 
