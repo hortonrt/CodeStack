@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>62e7687a-7644-4eca-9058-ba8d00359243</UserSecretsId>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
@@ -44,8 +45,16 @@
 
   <Target Name="DebugRunWebpack" AfterTargets="CopyFilesToOutputDirectory" Condition=" '$(Configuration)' == 'Debug' ">
     <Message Text="* * * * * * Building Angular App Dev * * * * * *" Importance="high"/>
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <!-- <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" /> -->
     <Exec WorkingDirectory="$(SpaRoot)" Command="ng build" />
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>dist/%(DistFiles.RecursiveDir)%(DistFiles.Filename)%(DistFiles.Extension)</RelativePath> 
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
   </Target>
 
 </Project>
