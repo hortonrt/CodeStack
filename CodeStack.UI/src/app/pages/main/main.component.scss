@@ -1,2 +1,35 @@
-.cs-main {
+@import 'csvariables';
+
+.card {
+  margin-bottom: 2rem;
+  .card-header {
+    font-size: 5rem;
+    line-height: 5rem;
+    text-align: center;
+
+    &.small-icons {
+      font-size: 3rem;
+      .ng-fa-icon {
+        padding: 0px 3px;
+      }
+    }
+  }
+}
+
+//make card decks respond sooner
+$cards-per-line: (
+  xs: 1,
+  sm: 2,
+  md: 3,
+  lg: 3,
+  xl: 3,
+);
+
+@each $name, $breakpoint in $grid-breakpoints {
+  @media (min-width: $breakpoint) {
+    .card-deck .card {
+      flex: 0 0
+        calc(#{100 / map-get($cards-per-line, $name)}% - #{$grid-gutter-width});
+    }
+  }
 }

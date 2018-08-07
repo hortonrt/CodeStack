@@ -101,14 +101,14 @@ $sizes: map-merge(
   $sizes
 );
 //fonts and background
-$font-size-base: 0.8rem; //smaller
+$font-size-base: 1rem; //smaller
 $body-bg: $white; //set background color
 $body-color: $cs-dark-blue;
 $paragraph-margin-bottom: 0.5rem;
 $grid-gutter-width: 20px;
 $border-color: $primary;
 $font-family-sans-serif: 'Titillium Web', sans-serif;
-$headings-color: $white;
+$headings-color: $cs-dark-blue;
 $table-accent-bg: rgba($primary, 0.05);
 $table-hover-bg: rgba($primary, 0.075);
 $table-active-bg: rgba($primary, 0.085);

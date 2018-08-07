@@ -3,6 +3,14 @@
 $dummy: 20px;
 $pad-amount: 20px;
 
+.router-wrapper {
+  position: relative;
+  top: -100px;
+  width: 100%;
+  padding: 0px 40px;
+  margin: auto;
+}
+
 .router-top {
   position: absolute;
   top: ($router-top + $pad-amount);
