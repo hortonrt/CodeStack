@@ -1,7 +1,7 @@
 @import 'csvariables';
 
 .card {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   .card-header {
     font-size: 5rem;
     line-height: 5rem;
@@ -14,13 +14,18 @@
       }
     }
   }
+  .card-body {
+    .card-title {
+      font-weight: bold;
+    }
+  }
 }
 
 //make card decks respond sooner
 $cards-per-line: (
   xs: 1,
   sm: 2,
-  md: 3,
+  md: 2,
   lg: 3,
   xl: 3,
 );

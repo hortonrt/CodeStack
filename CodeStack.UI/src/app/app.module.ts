@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -19,10 +20,14 @@ import { HeaderComponent } from './shared/header/header.component';
 import { LogoBannerComponent } from './shared/logo-banner/logo-banner.component';
 import { LogoComponent } from './shared/logo/logo.component';
 import { PageHeaderComponent } from './shared/page-header/page-header.component';
-import { HeightMatchDirective } from './shared/directives/heightMatch/height-match.directive';
-import { InfoComponent } from './info/info.component';
+import { InfoComponent } from './shared/info/info.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 import { AppService } from './app.service';
+import { AppLogoComponent } from './shared/app-logo/app-logo.component';
+import { ScrolledDirective } from './shared/directives/scrolled/scrolled.directive';
+import { ScrollSpyDirective } from './shared/directives/scrollspy/scrollspy.directive';
 
 @NgModule({
   declarations: [
@@ -41,13 +46,17 @@ import { AppService } from './app.service';
     LogoComponent,
     PageHeaderComponent,
     InfoComponent,
-    HeightMatchDirective,
+    AppLogoComponent,
+    ScrolledDirective,
+    ScrollSpyDirective,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FontAwesomeModule,
+    FormsModule,
     HttpClientModule,
+    CarouselModule.forRoot(),
+    AlertModule.forRoot(),
   ],
   providers: [AppService],
   bootstrap: [AppComponent],

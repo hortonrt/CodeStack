@@ -1,0 +1,12 @@
+@import 'csvariables';
+.app-logo {
+  text-align: left;
+  padding: 1rem;
+  background-color: $cs-dark-blue;
+
+  .text {
+    color: $white;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+}

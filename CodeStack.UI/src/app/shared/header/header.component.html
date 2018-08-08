@@ -1,18 +1,49 @@
-<nav class="cs-nav" [class.active]="expanded">
+<nav id="main" class="cs-nav" [class.active]="expanded" appScrolled>
   <div class="cs-nav-inner">
     <div class="row no-gutters justify-content-center">
       <div class="col-12 col-lg-10">
         <ul class="cs-nav-items">
           <li class="cs-nav-logo">
-            <a (click)="changeRoute(mainRoute)" class="d-none d-lg-block">
+            <a (click)="changeRoute('main')" class="d-none d-lg-block">
               <img src="../assets/Logo.svg" />
             </a>
-            <cs-logo color="white" class="d-block d-lg-none" size="1.5rem" (click)="changeRoute(mainRoute)"></cs-logo>
+            <cs-logo color="white" class="d-block d-lg-none" size="1.5rem" (click)="changeRoute('main')"></cs-logo>
           </li>
-          <li class="cs-nav-item" (click)="changeRoute(option)" *ngFor="let option of navOptions" [class.current-route]="activeRoute === option.Name">
+          <li class="cs-nav-item cs-nav-logo-scroll" (click)="changeRoute('main')">
             <a>
-              <div class="cs-nav-item-title">{{option.Name}}</div>
-              <div class="cs-nav-item-details">{{option.Details}}</div>
+              <div class="cs-nav-item-title">
+                <cs-logo color="white"></cs-logo>
+              </div>
+            </a>
+          </li>
+          <li class="cs-nav-item" (click)="changeRoute('about')" [class.current-route]="activeRoute === 'about'">
+            <a>
+              <div class="cs-nav-item-title">ABOUT</div>
+              <div class="cs-nav-item-details">Who we are and what we do to help you.</div>
+            </a>
+          </li>
+          <li class="cs-nav-item" (click)="changeRoute('stack')" [class.current-route]="activeRoute === 'stack'">
+            <a>
+              <div class="cs-nav-item-title">STACK</div>
+              <div class="cs-nav-item-details">Who we are and what we do to help you.</div>
+            </a>
+          </li>
+          <li class="cs-nav-item" (click)="changeRoute('testimonials')" [class.current-route]="activeRoute === 'testimonials'">
+            <a>
+              <div class="cs-nav-item-title">TESTIMONIALS</div>
+              <div class="cs-nav-item-details">What people have to say about our work.</div>
+            </a>
+          </li>
+          <li class="cs-nav-item" (click)="changeRoute('portfolio')" [class.current-route]="activeRoute === 'portfolio'">
+            <a>
+              <div class="cs-nav-item-title">PORTFOLIO</div>
+              <div class="cs-nav-item-details">What we have done for our clients.</div>
+            </a>
+          </li>
+          <li class="cs-nav-item" (click)="changeRoute('contact')" [class.current-route]="activeRoute === 'contact'">
+            <a>
+              <div class="cs-nav-item-title">CONTACT</div>
+              <div class="cs-nav-item-details">Get in touch and work with us, or just say hello.</div>
             </a>
           </li>
           <li class="cs-nav-item-extra">
@@ -25,6 +56,11 @@
               <li class="cs-nav-item">
                 <a href="mailto:ryan@codestackllc.com">
                   <div class="cs-nav-item-title">ryan@codestackllc.com</div>
+                </a>
+              </li>
+              <li class="cs-nav-item">
+                <a href="https://www.linkedin.com/company/codestack-llc/" target="_blank">
+                  <fa-icon class="fa-3x" [icon]="faLinkedin"></fa-icon>
                 </a>
               </li>
               <li class="cs-nav-item cs-nav-extra-logo">

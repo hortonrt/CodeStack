@@ -1,0 +1,14 @@
+@import 'csvariables';
+
+.slide-holder {
+  width: 100%;
+  height: 500px;
+  background-color: $cs-light-blue;
+}
+
+@media (max-width: map-get($map: $grid-breakpoints, $key: 'sm' )) {
+  .slide-holder {
+    width: 100%;
+    height: 300px;
+  }
+}

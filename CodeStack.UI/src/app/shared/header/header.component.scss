@@ -4,6 +4,7 @@
   position: absolute;
   width: 100%;
   z-index: 1020;
+
   .cs-nav-inner {
     .cs-nav-toggle {
       display: none;
@@ -25,7 +26,9 @@
         cursor: pointer;
         color: $white;
       }
-
+      .cs-nav-logo-scroll {
+        display: none;
+      }
       .cs-nav-logo {
         text-align: center;
         img {
@@ -37,7 +40,6 @@
         max-width: 115px;
         margin-left: 40px;
         vertical-align: middle;
-
         &:hover .cs-nav-item-title {
           border-top: 5px solid $secondary;
         }
@@ -71,6 +73,32 @@
       }
     }
   }
+
+  &.scrolled {
+    background: $cs-bg-blue;
+    position: fixed;
+    .cs-nav-inner {
+      max-width: 100%;
+      .cs-nav-items {
+        padding: 10px 0 5px 0;
+        .cs-nav-logo {
+          display: none;
+        }
+        .cs-nav-logo-scroll {
+          display: inline-block;
+        }
+
+        .cs-nav-item {
+          .cs-nav-item-title {
+            padding: 0;
+          }
+          .cs-nav-item-details {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
 
 .bg-expanded {
@@ -81,11 +109,13 @@
   right: 0;
   bottom: 0;
   opacity: 0;
+  visibility: hidden;
   background-color: $cs-nav-gray;
   transition: opacity 0.5s ease;
 }
 
 .bg-expanded.active {
+  visibility: visible;
   opacity: 1;
 }
 
@@ -93,9 +123,6 @@
   .cs-nav {
     .cs-nav-inner {
       .cs-nav-items {
-        .cs-nav-item {
-          margin-left: 2%;
-        }
         .cs-nav-item:first-child {
           margin-left: 0;
         }
@@ -137,7 +164,9 @@
           .cs-nav-item-details {
             display: none;
           }
-
+          &.current-route .cs-nav-item-title {
+            border-top: 5px solid transparent;
+          }
           &:hover .cs-nav-item-title {
             border-top: 5px solid transparent;
           }
@@ -170,13 +199,28 @@
       }
     }
   }
+  &.scrolled {
+    position: fixed;
+    .cs-nav-inner {
+      .cs-nav-items {
+        background: $cs-nav-gray;
+        .cs-nav-logo-scroll {
+          text-align: left;
+          padding-left: 20px;
+        }
+      }
+      .cs-nav-toggle {
+        padding: 10px 20px;
+      }
+    }
+  }
 }
 @media (max-width: map-get($map: $grid-breakpoints, $key: 'sm' )) {
   .cs-nav {
     .cs-nav-inner {
       .cs-nav-items,
       .cs-nav-toggle {
-        padding: 15px;
+        padding: 10px 20px;
       }
     }
   }

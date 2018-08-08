@@ -1,7 +1,17 @@
-<cs-header></cs-header>
+<cs-header [activeRoute]="activeRoute"></cs-header>
 <cs-banner></cs-banner>
 <cs-logo-banner></cs-logo-banner>
-<div class="router-wrapper">
-  <router-outlet></router-outlet>
+<div class="router-wrapper" appScrollspy (sectionChange)="onSectionChange($event)">
+  <app-main class="position-relative"></app-main>
+  <app-logo id="about" [size]="size">About</app-logo>
+  <app-about class="position-relative"></app-about>
+  <app-logo id="stack" [size]="size">Stack</app-logo>
+  <app-stack class="position-relative"></app-stack>
+  <app-logo id="testimonials" [size]="size">Testimonials</app-logo>
+  <app-testimonials class="position-relative"></app-testimonials>
+  <app-logo id="portfolio" [size]="size">Portfolio</app-logo>
+  <app-portfolio class="position-relative"></app-portfolio>
+  <app-logo id="contact" [size]="size">Contact</app-logo>
+  <app-contact class="position-relative"></app-contact>
 </div>
 <cs-footer></cs-footer>

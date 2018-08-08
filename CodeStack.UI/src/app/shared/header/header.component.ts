@@ -1,15 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, Route } from '@angular/router';
-
-import {
-  faBars,
-  faPhone,
-  faGlobe,
-  faEnvelope,
-  faTimes,
-} from '@fortawesome/free-solid-svg-icons';
-import { NavRoute } from '../../models/nav-route';
-import { AppService } from '../../app.service';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'cs-header',
@@ -17,35 +8,36 @@ import { AppService } from '../../app.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Input() activeRoute: string;
   faBars = faBars;
-  faPhone = faPhone;
-  faGlobe = faGlobe;
-  faEnvelope = faEnvelope;
   faTimes = faTimes;
+  faLinkedin = faLinkedin;
   expanded = false;
-  activeRoute = 'Main';
-  mainRoute = {
-    NavRouteID: -1,
-    Details: '',
-    Name: 'MAIN',
-    Routerlink: 'main',
-  };
-  navOptions: NavRoute[] = [];
-  constructor(private router: Router, private service: AppService) {}
 
-  ngOnInit() {
-    this.service.get('Options/Routes').subscribe((routes: NavRoute[]) => {
-      this.navOptions = routes;
-    });
+  constructor() {
+    this.activeRoute = 'main';
   }
 
+  ngOnInit() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.activeRoute = changes.activeRoute.currentValue;
+  }
   expand() {
     this.expanded = !this.expanded;
   }
 
-  changeRoute(navRoute: NavRoute) {
+  changeRoute(navRoute: string) {
     this.expanded = false;
-    this.activeRoute = navRoute.Name;
-    this.router.navigate(['/' + navRoute.Routerlink]);
+    this.activeRoute = navRoute;
+    let selector: string = '';
+    if (navRoute === 'main') {
+      selector = 'body';
+    } else {
+      selector = '#' + navRoute + '-anc';
+    }
+    document
+      .querySelector(selector)
+      .scrollIntoView({ block: 'start', behavior: 'smooth' });
   }
 }

@@ -1,6 +1,51 @@
-<cs-page-header>
-  CONTACT - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-  aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-  cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</cs-page-header>
+<div id="contact-anc" style="position:absolute;top: -159px; left: 0;"></div>
+<div class="row no-gutters">
+  <div class="col-12 p-5">
+    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+      <div class="form-row justify-content-center">
+        <div class="form-group col-12 col-lg-8 col-xl-6 text-center">
+          <p>Would you like more information? Contact CODESTACK below and we'll be in touch!</p>
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div class="form-group col-12 col-md-6 col-lg-4 col-xl-3">
+          <input type="text" class="form-control" placeholder="First name" [(ngModel)]="contact.FirstName" required name="FirstName">
+        </div>
+        <div class="form-group col-12 col-md-6 col-lg-4 col-xl-3">
+          <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="contact.LastName" required name="LastName">
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div class="form-group col-12 col-md-6 col-lg-4 col-xl-3">
+          <input type="email" class="form-control" placeholder="Email Address" [(ngModel)]="contact.EmailAddress" required name="EmailAddress">
+        </div>
+        <div class="form-group col-12 col-md-6 col-lg-4 col-xl-3">
+          <input type="tel" class="form-control" placeholder="Phone Number" [(ngModel)]="contact.PhoneNumber" required name="PhoneNumber">
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div class="form-group col-12 col-lg-8 col-xl-6">
+          <label>Tell us a little bit about your needs:</label>
+          <textarea class="form-control" placeholder="" rows="4" [(ngModel)]="contact.Message" required name="Message"></textarea>
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div class="form-group col-12 col-lg-8 col-xl-6">
+          <button type="submit" [disabled]="!contactForm.form.valid || sending" class="btn btn-secondary btn-xl w-100">
+            <span *ngIf="sending">
+              <fa-icon [icon]="faSpinner" [pulse]="true"></fa-icon>
+            </span>
+            <span *ngIf="!sending">Send</span>
+          </button>
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div class="form-group col-12 col-lg-8 col-xl-6">
+          <div *ngFor="let alert of alerts">
+            <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)" class="text-center">{{ alert.msg }}</alert>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

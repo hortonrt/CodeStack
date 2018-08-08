@@ -2,13 +2,14 @@
 
 .page-header {
   position: relative;
-  background-color: $white;
+  background-color: $cs-light-blue;
   width: 90%;
   margin: auto;
   z-index: 1005;
   padding: 30px;
   font-size: 1.5rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: map-get($map: $grid-breakpoints, $key: 'sm')) {

@@ -23,10 +23,6 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CodeStack.Data\CodeStack.Data.csproj" />
-  </ItemGroup>
-
   <ItemGroup  Condition=" '$(Configuration)' == 'Release' ">  
     <Content Remove="./appsettings.Development.json" />
   </ItemGroup>
