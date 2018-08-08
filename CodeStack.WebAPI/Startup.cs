@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -40,13 +41,17 @@ namespace CodeStack.WebAPI {
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
-
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             } else {
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
+            if (isProd) {
+                var options = new RewriteOptions();
+                options.AddRedirectToWww();
+                options.AddRedirectToHttps();
+                app.UseRewriter(options);
+            }
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
