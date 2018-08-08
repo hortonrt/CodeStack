@@ -12,7 +12,7 @@ export class StackComponent implements OnInit {
     { name: 'BitBucket', link: 'https://bitbucket.org/', img: 'bitbucket.svg' },
     {
       name: 'Bootstrap',
-      link: 'https://www.gertbootstrap.com',
+      link: 'https://www.getbootstrap.com',
       img: 'bootstrap.svg',
     },
     {
