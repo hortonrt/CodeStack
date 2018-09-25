@@ -20,12 +20,8 @@ namespace CodeStack.WebAPI {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional : true, reloadOnChange : true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional : true, reloadOnChange : true)
-                .AddEnvironmentVariables();
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional : true, reloadOnChange : true);
 
-            if (env.IsDevelopment()) {
-                builder.AddUserSecrets<Startup>();
-            }
             CurrentEnvironment = env;
             Configuration = builder.Build();
             isProd = Convert.ToBoolean(Configuration["IsProduction"]);
@@ -36,7 +32,7 @@ namespace CodeStack.WebAPI {
                 options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
             });
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "dist"; });
-            services.AddDbContext<CodeStackContext>(options => options.UseSqlServer(Configuration["connectionStrings:CodeStack" + (isProd ? "_Prod" : "_Dev")]));
+            services.AddDbContext<CodeStackContext>(options => options.UseMySql(Configuration["ConnectionString"]));
             services.AddCors();
         }
 

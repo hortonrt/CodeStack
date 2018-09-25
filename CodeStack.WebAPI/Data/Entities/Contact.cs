@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace CodeStack.WebAPI.Data.Entities {
-  [Table("Contact", Schema = "Data")]
+  [Table("Contact")]
   public class Contact {
     [Key]
     public int ContactID { get; set; }
@@ -21,7 +21,7 @@ namespace CodeStack.WebAPI.Data.Entities {
     [Column(TypeName = "VARCHAR(25)")]
     public string PhoneNumber { get; set; }
 
-    [Column(TypeName = "VARCHAR(max)")]
+    [Column(TypeName = "VARCHAR(4000)")]
     public string Message { get; set; }
   }
 }
